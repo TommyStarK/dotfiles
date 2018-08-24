@@ -17,7 +17,7 @@ alias drop="cd ~/Dropbox"
 alias dl="cd ~/Downloads"
 alias desk="cd ~/Desktop"
 alias ll="ls -l ${colorflag}"
-alias la="ls -laF ${colorflag}"
+alias la="ls -lAF ${colorflag}"
 alias ls="ls -GFh ${colorflag}"
 alias valeak="valgrind --leak-check=full --show-reachable=yes"
 alias grep='grep --color=auto'
