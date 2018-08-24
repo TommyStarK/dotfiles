@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
 export PATH="$(brew --prefix coreutils)/libexec/gnubi":$PATH
+export PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin"=$PATH

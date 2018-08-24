@@ -88,6 +88,41 @@ function clean() {
     find ${SEARCH} \( -name "*~" -or -name ".*~" -or -name "#*#" -or -name ".#*#" -or -name "*.o" -or -name "*(deleted*" -or -name "*conflicted*" -or -name "a.out" -or -name ".out" -or -name "*.DS_Store" \) -exec rm -fv {} \;
 }
 
+# Docker full clean
 function dockerclean() {
 	docker rm -f $(docker ps -a -q) ; docker rmi -f $(docker images -q)
+}
+
+# Get ECR token access
+function ecrlogin() {
+	if [ -z "$1" ]
+	then
+			echo "Retrieving ecr token for default profile..."
+			aws ecr get-login --no-include-email --region eu-west-1 | sh /dev/stdin
+	else
+			aws ecr get-login --no-include-email --region eu-west-1 --profile "$1" | sh /dev/stdin
+	fi
+}
+
+# Update cluster state (master/nodes)
+function clusterupdate() {
+	if [  $# -ne 3 ]
+	then
+			echo "cluster <NODES> <MASTER> <STATE>";
+	else
+			sudo kops edit ig "$1" --state="$3";
+			sudo kops edit ig "$2" --state="$3";
+			sudo kops update cluster --yes --state="$3";
+			sudo kops rolling-update cluster --yes --cloudonly --state="$3";
+	fi
+}
+
+# Set k8s context
+function kubectx() {
+	if [ -z "$1" ]
+	then
+		echo "kubectx <CTX>";
+	else
+		sudo kubectl config use-context "$1";
+	fi
 }

@@ -49,4 +49,4 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec ${SHELL} -l"
 # Print each PATH entry on a separate line
-alias printpath='echo -e ${PATH//:/\\n}'
+alias path='echo -e ${PATH//:/\\n}'
