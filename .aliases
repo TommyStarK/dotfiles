@@ -12,7 +12,6 @@ fi
 alias ..="cd .."
 alias cp="cp -v"
 alias mv="mv -v"
-alias emacs="emacs -nw"
 alias drop="cd ~/Dropbox"
 alias dl="cd ~/Downloads"
 alias desk="cd ~/Desktop"
