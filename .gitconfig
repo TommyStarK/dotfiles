@@ -61,5 +61,5 @@
     pushdefault = origin
 
 [core]
-    edition = emacs
-    editor = emacs
+    edition = nano
+    editor = nano
