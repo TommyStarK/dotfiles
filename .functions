@@ -87,10 +87,11 @@ function dockerclean() {
 function ecrlogin() {
 	if [ -z "$1" ]
 	then
-			echo "Retrieving ecr token for default profile..."
-			aws ecr get-login --no-include-email --region eu-west-1 | sh /dev/stdin
+		echo "Retrieving ecr token for default profile..."
+		aws ecr get-login --no-include-email --region eu-west-1 | sh /dev/stdin
 	else
-			aws ecr get-login --no-include-email --region eu-west-1 --profile "$1" | sh /dev/stdin
+			
+		aws ecr get-login --no-include-email --region eu-west-1 --profile "$1" | sh /dev/stdin
 	fi
 }
 
@@ -98,12 +99,12 @@ function ecrlogin() {
 function clusterupdate() {
 	if [  $# -ne 3 ]
 	then
-			echo "cluster <NODES> <MASTER> <STATE>";
+		echo "cluster <NODES> <MASTER> <STATE>";
 	else
-			sudo kops edit ig "$1" --state="$3";
-			sudo kops edit ig "$2" --state="$3";
-			sudo kops update cluster --yes --state="$3";
-			sudo kops rolling-update cluster --yes --cloudonly --state="$3";
+		sudo kops edit ig "$1" --state="$3";
+		sudo kops edit ig "$2" --state="$3";
+		sudo kops update cluster --yes --state="$3";
+		sudo kops rolling-update cluster --yes --cloudonly --state="$3";
 	fi
 }
 
