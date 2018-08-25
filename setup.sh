@@ -102,7 +102,7 @@ sudo chmod u+s $(brew --prefix)/opt/docker-machine-driver-xhyve/bin/docker-machi
 brew cleanup
 
 # Setup MacOs defaults
-chmod +x .macOS
+chmod +x .macos
 ./.macos
 
 # Reboot
