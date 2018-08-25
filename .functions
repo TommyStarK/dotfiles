@@ -78,16 +78,6 @@ function stree() {
 	tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
 }
 
-# Clean tmp files
-function clean() {
-    SEARCH='.'
-    if [ ${1} ]
-    then
-        SEARCH=${1}
-    fi
-    find ${SEARCH} \( -name "*~" -or -name ".*~" -or -name "#*#" -or -name ".#*#" -or -name "*.o" -or -name "*(deleted*" -or -name "*conflicted*" -or -name "a.out" -or -name ".out" -or -name "*.DS_Store" \) -exec rm -fv {} \;
-}
-
 # Docker full clean
 function dockerclean() {
 	docker rm -f $(docker ps -a -q) ; docker rmi -f $(docker images -q)

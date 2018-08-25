@@ -50,3 +50,6 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 alias reload="exec ${SHELL} -l"
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
+# Clean temporary/undesired files
+alias cleanup='find . -type f \( -iname "*~" -o -iname ".*~" -o -iname "#*#" -o -iname ".#*#" -o -iname "*.o" -o -iname "*(deleted*" -o -iname "*conflicted*" -o -iname "a.out" -o -iname ".out" -o -iname "*.DS_Store" \) -ls -delete'
+
