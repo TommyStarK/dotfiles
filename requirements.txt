@@ -8,6 +8,7 @@ dask[complete]>=0.18.2
 fastparquet
 flask
 jupyter
+keras
 numpy
 pandas
 partd
