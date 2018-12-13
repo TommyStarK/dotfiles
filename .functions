@@ -70,14 +70,6 @@ function digga() {
 	dig +nocmd "$1" any +multiline +noall +answer;
 }
 
-# `stree` is a `tree` with hidden files and color enabled, ignoring
-# the `.git` directory, listing directories first. The output gets piped into
-# `less` with options to preserve color and line numbers, unless the output is
-# small enough for one screen.
-function stree() {
-	tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
-}
-
 # Docker full clean
 function dockerclean() {
 	docker rm -f $(docker ps -a -q) ; docker rmi -f $(docker images -q)
