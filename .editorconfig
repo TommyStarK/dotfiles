@@ -15,7 +15,7 @@ indent_size = 4
 
 [*.js]
 indent_style = space
-idnent_size = 2
+indent_size = 2
 
 [Makefile]
 indent_style = tab
