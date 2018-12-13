@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
 
+export GOPATH="$HOME/go"
 export PATH="$(brew --prefix coreutils)/libexec/gnubi":$PATH
 export PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin":$PATH
+export PATH="$GOPATH/bin":$PATH
+export PATH="/usr/local/sbin":$PATH
