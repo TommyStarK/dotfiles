@@ -36,3 +36,6 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 
 # Bind autocomple conf
 bind -f ~/.inputrc
+
+# NVM
+source ~/.nvm/nvm.sh --no-use
