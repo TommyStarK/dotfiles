@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
-# Make emacs the default editor.
+# Make nano the default editor.
 export EDITOR='nano';
+
+# Go mod
+export GO111MODULE=on
 
 # Enable persistent REPL history for `node`.
 export NODE_REPL_HISTORY=~/.node_history;
