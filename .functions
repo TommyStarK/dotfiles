@@ -68,7 +68,15 @@ function digga() {
 
 # Docker full clean
 function dockerclean() {
-	docker rm -f $(docker ps -a -q) ; docker rmi -f $(docker images -q)
+    docker rm -f $(docker ps -a -q) ; docker rmi -f $(docker images -q); docker system prune --all --volumes
+}
+
+function dockercontainerstop() {
+    docker ps -a | awk '{print $1}' | xargs docker stop
+}
+
+function  dockercontainerrm() {
+    docker ps -a | awk '{print $1}' | xargs docker rm
 }
 
 # Get ECR token access
