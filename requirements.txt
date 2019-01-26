@@ -20,10 +20,8 @@ s3fs
 selenium
 scipy
 sklearn
-tensorflow
 toolz
 tornado
 virtualenv
 websocket
 xgboost
-yapf
