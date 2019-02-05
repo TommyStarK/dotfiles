@@ -62,6 +62,7 @@ brew install tree
 brew install vbindiff
 brew install yarn --without-node
 brew install zopfli
+brew install bat
 
 # Devtools
 brew install cmake
