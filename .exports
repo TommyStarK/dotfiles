@@ -4,7 +4,7 @@
 export EDITOR='nano';
 
 # Go mod
-export GO111MODULE=on
+export GO111MODULE=auto
 
 # Enable persistent REPL history for `node`.
 export NODE_REPL_HISTORY=~/.node_history;
