@@ -72,6 +72,7 @@ brew install go
 brew install mongodb
 brew install mysql
 brew install redis
+brew install tcpdump
 brew install node
 brew install python@2
 brew install python
