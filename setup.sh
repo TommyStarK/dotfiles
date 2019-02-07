@@ -40,48 +40,44 @@ done;
 unset file;
 
 # Install various tools
-brew install curl
-brew install wget --with-iri
-brew install openssh
-brew install screen
-brew install htop
-brew install grep
 brew install ack
+brew install bat
+brew install cmake
+brew install curl
+brew install gawk
+brew install gcc
+brew install gdb
 brew install git
 brew install git-lfs
-brew install imagemagick --with-webp
+brew install go
+brew install grep
+brew install htop
 brew install lua
-brew install lynx
+brew install mongodb
+brew install mysql
+brew install nano
+brew install node
+brew install openssh
 brew install p7zip
 brew install pigz
 brew install pv
-brew install rename
-brew install rlwrap
-brew install ssh-copy-id
-brew install tree
-brew install vbindiff
-brew install yarn --without-node
-brew install zopfli
-brew install bat
-
-# Devtools
-brew install cmake
-brew install gcc
-brew install gdb
-brew install go
-brew install mongodb
-brew install mysql
-brew install redis
-brew install tcpdump
-brew install node
 brew install python@2
 brew install python
+brew install redis
+brew install rename
+brew install rlwrap
+brew install screen
+brew install ssh-copy-id
+brew install tcpdump
+brew install tree
+brew install wget --with-iri
+brew install yarn --without-node
+brew install zopfli
 brew cask install docker
 brew cask install google-chrome
 brew cleanup
 
 # Install nano with syntax highlighting
-brew install nano
 wget https://raw.githubusercontent.com/scopatz/nanorc/master/install.sh -O- | sh
 
 # Install nvm
