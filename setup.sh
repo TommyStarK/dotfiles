@@ -81,7 +81,7 @@ brew cleanup
 wget https://raw.githubusercontent.com/scopatz/nanorc/master/install.sh -O- | sh
 
 # Install nvm
-wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
+mkdir ~/.nvm && wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
 
 # Install Python deps
 pip2 install --upgrade pip
