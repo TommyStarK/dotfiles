@@ -70,8 +70,8 @@ brew install screen
 brew install ssh-copy-id
 brew install tcpdump
 brew install tree
-brew install wget --with-iri
-brew install yarn --without-node
+brew install wget
+brew install yarn
 brew install zopfli
 brew cask install docker
 brew cask install google-chrome
