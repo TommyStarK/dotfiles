@@ -2,6 +2,7 @@
 
 # Install Command Line Tools
 xcode-select --install
+sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
 
 # Install Homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
