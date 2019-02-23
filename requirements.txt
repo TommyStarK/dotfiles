@@ -13,8 +13,8 @@ numpy
 pandas
 partd
 PyAthena
+pylint
 python-dateutil
-python-snappy
 requests
 s3fs
 selenium

@@ -23,22 +23,24 @@ brew install moreutils
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed.
 brew install findutils
 # Install GNU `sed`, overwriting the built-in `sed`.
-brew install gnu-sed --with-default-names
-# Install Bash 4.
-brew install bash
-brew install bash-completion2
+brew install gnu-sed
 
-# Switch to using brew-installed bash as default shell
-if ! fgrep -q '/usr/local/bin/bash' /etc/shells; then
-  echo '/usr/local/bin/bash' | sudo tee -a /etc/shells;
-  chsh -s /usr/local/bin/bash;
+brew install zsh
+
+# Switch to using brew-installed zsh as default shell
+if ! fgrep -q '/usr/local/bin/zsh' /etc/shells; then
+  echo '/usr/local/bin/zsh' | sudo tee -a /etc/shells;
+  chsh -s /usr/local/bin/zsh;
 fi;
 
 # Copy bash .files to HOME
-for file in ./.{aliases,bash_profile,bash_prompt,bashrc,editorconfig,exports,functions,gitconfig,inputrc,paths}; do
+for file in ./.{aliases,editorconfig,exports,functions,gitconfig,inputrc,paths,zshrc}; do
 	cp -v "$file" ~;
 done;
 unset file;
+
+# cp oh-my-zsh to home
+cp -R oh-my-zsh ~/.oh-my-zsh
 
 # Install various tools
 brew install ack
@@ -60,13 +62,10 @@ brew install nano
 brew install node
 brew install openssh
 brew install p7zip
-brew install pigz
-brew install pv
 brew install python@2
 brew install python
 brew install redis
 brew install rename
-brew install rlwrap
 brew install screen
 brew install ssh-copy-id
 brew install tcpdump
@@ -74,7 +73,6 @@ brew install tree
 brew install wget
 brew install yarn
 brew install zopfli
-brew cask install docker
 brew cask install google-chrome
 brew cleanup
 
@@ -85,9 +83,8 @@ wget https://raw.githubusercontent.com/scopatz/nanorc/master/install.sh -O- | sh
 mkdir ~/.nvm && wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
 
 # Install Python deps
-pip2 install --upgrade pip
-pip3 install --upgrade pip
-pip3 install -r requirements.txt --upgrade --user
+pip install --upgrade pip
+pip install -r requirements.txt
 
 # Install Node modules
 npm install -g cors
