@@ -66,17 +66,17 @@ function digga() {
 	dig +nocmd "$1" any +multiline +noall +answer;
 }
 
-# Docker full clean
-function dockerclean() {
-    docker rm -f $(docker ps -a -q) ; docker rmi -f $(docker images -q); docker system prune --all --volumes
-}
-
-function dockercontainerstop() {
+function dockerstopall() {
     docker ps -a | awk '{print $1}' | xargs docker stop
 }
 
-function  dockercontainerrm() {
+function  dockerrmall() {
     docker ps -a | awk '{print $1}' | xargs docker rm
+}
+
+# Docker full clean
+function dockerprune() {
+    dockerstopall; dockerrmall ; docker rmi -f $(docker images -q); docker system prune --all --volumes --force
 }
 
 # Get ECR token access
