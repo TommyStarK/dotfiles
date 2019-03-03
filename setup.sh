@@ -55,6 +55,7 @@ brew install git-lfs
 brew install go
 brew install grep
 brew install htop
+brew install jq
 brew install lua
 brew install mongodb
 brew install mysql
