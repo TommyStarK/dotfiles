@@ -33,7 +33,7 @@ if ! fgrep -q '/usr/local/bin/zsh' /etc/shells; then
   chsh -s /usr/local/bin/zsh;
 fi;
 
-# Copy bash .files to HOME
+# Copy .files to HOME
 for file in ./.{aliases,editorconfig,exports,functions,gitconfig,inputrc,paths,zshrc}; do
 	cp -v "$file" ~;
 done;
