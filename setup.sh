@@ -44,6 +44,7 @@ cp -R oh-my-zsh ~/.oh-my-zsh
 
 # Install various tools
 brew install ack
+brew install ansible
 brew install bat
 brew install cmake
 brew install curl
