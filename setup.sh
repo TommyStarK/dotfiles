@@ -76,6 +76,11 @@ brew install wget
 brew install yarn
 brew install zopfli
 brew cask install google-chrome
+
+# Install graphviz (required to visualize graph when using go tool pprof)
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null 2> /dev/null
+brew install graphviz
+
 brew cleanup
 
 # Install nano with syntax highlighting
