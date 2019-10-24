@@ -71,6 +71,7 @@ brew install rename
 brew install screen
 brew install ssh-copy-id
 brew install tcpdump
+brew install tig
 brew install tree
 brew install wget
 brew install yarn
