@@ -70,6 +70,7 @@ brew install redis
 brew install rename
 brew install screen
 brew install ssh-copy-id
+brew install starship
 brew install tcpdump
 brew install tig
 brew install tree
