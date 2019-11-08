@@ -5,7 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="geometry/geometry"
+#ZSH_THEME="geometry/geometry"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -45,3 +45,5 @@ unset file;
 # NVM
 source ~/.nvm/nvm.sh --no-use
 
+# enable starship prompt
+eval "$(starship init zsh)"
