@@ -57,6 +57,7 @@ brew install go
 brew install grep
 brew install htop
 brew install jq
+brew install lazydocker
 brew install lua
 brew install mongodb
 brew install mysql
