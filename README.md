@@ -12,6 +12,5 @@ My .files inspired by the **awesome** dotfiles repository [mathiasbynens/dotfile
 ## Usage for macOS
 
 ```bash
-$ chmod +x setup.sh
 $ ./setup.sh
 ```

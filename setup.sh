@@ -34,7 +34,7 @@ if ! fgrep -q '/usr/local/bin/bash' /etc/shells; then
 fi;
 
 # Copy .files to HOME
-for file in ./.{aliases,bashrc,bash_profile,bash_prompt,editorconfig,exports,functions,gitconfig,inputrc,paths}; do
+for file in ./.{aliases,bash_profile,bash_prompt,bashrc,curlrc,editorconfig,exports,functions,gitconfig,inputrc,paths,screenrc}; do
 	cp -v "$file" ~;
 done;
 unset file;
@@ -75,11 +75,12 @@ brew install tree
 brew install wget
 brew install yarn
 brew install zopfli
-brew cask install google-chrome
 
-# Install graphviz (required to visualize graph when using go tool pprof)
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null 2> /dev/null
 brew install graphviz
+
+brew cask install docker
+brew cask install google-chrome
 
 brew cleanup
 
