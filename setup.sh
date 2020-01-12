@@ -25,22 +25,19 @@ brew install findutils
 # Install GNU `sed`, overwriting the built-in `sed`.
 brew install gnu-sed
 
-brew install zsh
+brew install bash
 
-# Switch to using brew-installed zsh as default shell
-if ! fgrep -q '/usr/local/bin/zsh' /etc/shells; then
-  echo '/usr/local/bin/zsh' | sudo tee -a /etc/shells;
-  chsh -s /usr/local/bin/zsh;
+# Switch to using brew-installed bash as default shell
+if ! fgrep -q '/usr/local/bin/bash' /etc/shells; then
+  echo '/usr/local/bin/bash' | sudo tee -a /etc/shells;
+  chsh -s /usr/local/bin/bash;
 fi;
 
 # Copy .files to HOME
-for file in ./.{aliases,editorconfig,exports,functions,gitconfig,inputrc,paths,zshrc}; do
+for file in ./.{aliases,bashrc,bash_profile,bash_prompt,editorconfig,exports,functions,gitconfig,inputrc,paths}; do
 	cp -v "$file" ~;
 done;
 unset file;
-
-# cp oh-my-zsh to home
-cp -R oh-my-zsh ~/.oh-my-zsh
 
 # Install various tools
 brew install ack
@@ -91,6 +88,12 @@ wget https://raw.githubusercontent.com/scopatz/nanorc/master/install.sh -O- | sh
 
 # Install nvm
 mkdir ~/.nvm && wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
+
+# bash completion
+# docker
+ln -s /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion /usr/local/etc/bash_completion.d/docker
+ln -s /Applications/Docker.app/Contents/Resources/etc/docker-machine.bash-completion /usr/local/etc/bash_completion.d/docker-machine
+ln -s /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion /usr/local/etc/bash_completion.d/docker-compose
 
 # Install Python deps
 pip install --upgrade pip
