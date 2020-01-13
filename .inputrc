@@ -1,5 +1,3 @@
-set colored-stats On
-
 # Make Tab autocomplete regardless of filename case
 set completion-ignore-case on
 
@@ -40,5 +38,3 @@ set convert-meta off
 
 # Use Alt/Meta + Delete to delete the preceding word
 "\e[3;3~": kill-word
-
-TAB: menu-complete

@@ -24,7 +24,7 @@ brew install moreutils
 brew install findutils
 # Install GNU `sed`, overwriting the built-in `sed`.
 brew install gnu-sed
-
+# Install latest Bash using Brew
 brew install bash
 
 # Switch to using brew-installed bash as default shell
@@ -34,7 +34,7 @@ if ! fgrep -q '/usr/local/bin/bash' /etc/shells; then
 fi;
 
 # Copy .files to HOME
-for file in ./.{aliases,bash_profile,bash_prompt,bashrc,curlrc,editorconfig,exports,functions,gitconfig,inputrc,paths,screenrc}; do
+for file in ./.{aliases,bash_profile,bash_prompt,bashrc,curlrc,editorconfig,exports,functions,gitconfig,inputrc,paths,screenrc,wgetrc}; do
 	cp -v "$file" ~;
 done;
 unset file;
@@ -42,6 +42,7 @@ unset file;
 # Install various tools
 brew install ack
 brew install ansible
+brew install bash-completion
 brew install bat
 brew install cmake
 brew install curl
@@ -49,8 +50,10 @@ brew install gawk
 brew install gcc
 brew install gdb
 brew install git
+brew install git-extras
 brew install git-lfs
 brew install go
+brew install graphviz
 brew install grep
 brew install htop
 brew install jq
@@ -75,9 +78,6 @@ brew install tree
 brew install wget
 brew install yarn
 brew install zopfli
-
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null 2> /dev/null
-brew install graphviz
 
 brew cask install docker
 brew cask install google-chrome

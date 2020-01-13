@@ -3,7 +3,7 @@
 # Make nano the default editor.
 export EDITOR='nano';
 
-# Go mod
+# Go modules
 export GO111MODULE=on
 
 # Enable persistent REPL history for `node`.
@@ -32,5 +32,5 @@ export LESS_TERMCAP_md="${yellow}";
 # Don’t clear the screen after quitting a manual page.
 export MANPAGER='less -X';
 
-# NVM dir
+# NVM
 export NVM_DIR=~/.nvm

@@ -9,50 +9,54 @@ else # macOS `ls`
 	export LSCOLORS='exfxcxdxbxegedabagacad'
 fi
 
+# Enable aliases to be sudo’ed
+alias sudo='sudo '
+
+# Navigation / common tools
 alias ..="cd .."
 alias cp="cp -v"
 alias mv="mv -v"
-alias drop="cd ~/Dropbox"
 alias dl="cd ~/Downloads"
 alias desk="cd ~/Desktop"
 alias ll="ls -l ${colorflag}"
 alias la="ls -lAF ${colorflag}"
-alias ls="ls -GFh ${colorflag}"
-alias valeak="valgrind --leak-check=full --show-reachable=yes"
+alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
 alias grep='grep --color=auto'
-# Enable aliases to be sudo’ed
-alias sudo='sudo '
-# Get week number
-alias week='date +%V'
-alias brewupdate="brew update; brew upgrade; brew cleanup"
-alias npmupdate="npm install npm -g; npm update -g"
-alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias localip="ipconfig getifaddr en0"
-alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
-# Flush Directory Service cache
-alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
+
+# Lock the screen (when going AFK)
+alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+# Clean temporary/undesired files
+alias cleanup='find . -type f \( -iname "*~" -o -iname ".*~" -o -iname "#*#" -o -iname ".#*#" -o -iname "*.o" -o -iname "*(deleted*" -o -iname "*conflicted*" -o -iname "a.out" -o -iname ".out" -o -iname "*.DS_Store" \) -ls -delete'
+# Kill all the tabs in Chrome to free up memory
+# [C] explained: http://www.commandlinefu.com/commands/view/402/exclude-grep-from-your-grepped-output-of-ps-alias-included-in-description
+alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
 # Empty the Trash on all mounted volumes and the main HDD.
 # Also, clear Apple’s System Logs to improve shell startup speed.
 # Finally, clear download history from quarantine. https://mths.be/bum
 alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl; sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'"
-# URL-encode strings
-alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
+# Flush Directory Service cache
+alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
+# Show active network interfaces
+alias ifactive="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'"
+# Show public IP
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+# Show local IP
+alias localip="ipconfig getifaddr en0"
 # Merge PDF files
 # Usage: `mergepdf -o output.pdf input{1,2,3}.pdf`
 alias mergepdf='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Resources/join.py'
-# Kill all the tabs in Chrome to free up memory
-# [C] explained: http://www.commandlinefu.com/commands/view/402/exclude-grep-from-your-grepped-output-of-ps-alias-included-in-description
-alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
-# Lock the screen (when going AFK)
-alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
-# Reload the shell (i.e. invoke as a login shell)
-alias reload="exec ${SHELL} -l"
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
-# Clean temporary/undesired files
-alias cleanup='find . -type f \( -iname "*~" -o -iname ".*~" -o -iname "#*#" -o -iname ".#*#" -o -iname "*.o" -o -iname "*(deleted*" -o -iname "*conflicted*" -o -iname "a.out" -o -iname ".out" -o -iname "*.DS_Store" \) -ls -delete'
+# Reload the shell (i.e. invoke as a login shell)
+alias reload="exec ${SHELL} -l"
 # `stree` is a `tree` with hidden files and color enabled, ignoring
 # the `.git` directory, listing directories first. The output gets piped into
 # `less` with options to preserve color and line numbers, unless the output is
 # small enough for one screen.
 alias tree='tree -aC -I ".git|node_modules|bower_components" --dirsfirst "$@" | less -FRNX;'
+# Get macOS Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
+alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update; sudo gem cleanup'
+# URL-encode strings
+alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
+# Valgrind
+alias valeak="valgrind --leak-check=full --show-reachable=yes"
