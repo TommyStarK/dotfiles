@@ -1,4 +1,9 @@
-set colored-stats On
+set colored-stats on
+set colored-completion-prefix on
+
+#set completion-display-width 1
+#set menu-complete-display-prefix on
+set completion-prefix-display-length 2
 
 # Make Tab autocomplete regardless of filename case
 set completion-ignore-case on
