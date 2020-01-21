@@ -5,7 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-#ZSH_THEME="geometry/geometry"
+ZSH_THEME="oxide/oxide"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -30,8 +30,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(docker docker-compose docker-machine golang pylint python 
-systemadmin)
+plugins=(docker docker-compose docker-machine golang python systemadmin)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -41,9 +40,3 @@ for file in ~/.{aliases,exports,functions,paths}; do
     [ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
-
-# NVM
-source ~/.nvm/nvm.sh --no-use
-
-# enable starship prompt
-eval "$(starship init zsh)"
