@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+# #!/usr/bin/env bash
 
 # Install Command Line Tools
 xcode-select --install
@@ -34,7 +34,7 @@ if ! fgrep -q '/usr/local/bin/zsh' /etc/shells; then
 fi;
 
 # Copy .files to HOME
-for file in ./.{aliases,curlrc,editorconfig,exports,functions,gitconfig,inputrc,paths,screenrc,wgetrc,zshrc}; do
+for file in ./.{aliases,curlrc,editorconfig,exports,functions,gitconfig,paths,screenrc,wgetrc,zshrc}; do
 	cp -v "$file" ~;
 done;
 unset file;
@@ -106,7 +106,6 @@ npm install -g react
 npm install -g create-react-app
 
 # Setup MacOs defaults
-chmod +x .macos
 ./.macos
 
 # Reboot
