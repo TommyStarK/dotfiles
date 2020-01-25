@@ -81,6 +81,7 @@ brew install zopfli
 
 brew cask install docker
 brew cask install google-chrome
+brew cask install iterm2
 
 brew cleanup
 
@@ -109,7 +110,6 @@ npm install -g react
 npm install -g create-react-app
 
 # Setup MacOs defaults
-chmod +x .macos
 ./.macos
 
 # Reboot
