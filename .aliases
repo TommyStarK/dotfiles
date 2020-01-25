@@ -6,7 +6,7 @@ if ls --color > /dev/null 2>&1; then # GNU `ls`
 	export LS_COLORS='no=00:fi=00:di=00;34:ln=00;35:pi=00;33:so=00;32:do=01;35:ex=01;31:'
 else # macOS `ls`
 	colorflag="-G"
-	export LSCOLORS='exfxcxdxbxegedabagacad'
+	export LSCOLORS='Exfxbxdxcxegedabagacad'
 fi
 
 # Enable aliases to be sudo’ed
@@ -18,10 +18,9 @@ alias cp="cp -v"
 alias mv="mv -v"
 alias dl="cd ~/Downloads"
 alias desk="cd ~/Desktop"
-alias ll="ls -l ${colorflag}"
-alias la="ls -lAF ${colorflag}"
-alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
-alias grep='grep --color=auto'
+alias ll="ls -lF ${colorflag}"
+alias la="ls -lAhF ${colorflag}"
+alias grep='grep --color=auto --exclude-dir=.git'
 
 # Lock the screen (when going AFK)
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
@@ -34,17 +33,12 @@ alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v exten
 # Also, clear Apple’s System Logs to improve shell startup speed.
 # Finally, clear download history from quarantine. https://mths.be/bum
 alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl; sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'"
-# Flush Directory Service cache
-alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
 # Show active network interfaces
 alias ifactive="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'"
 # Show public IP
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 # Show local IP
 alias localip="ipconfig getifaddr en0"
-# Merge PDF files
-# Usage: `mergepdf -o output.pdf input{1,2,3}.pdf`
-alias mergepdf='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Resources/join.py'
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
 # Reload the shell (i.e. invoke as a login shell)

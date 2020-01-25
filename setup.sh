@@ -24,7 +24,7 @@ brew install moreutils
 brew install findutils
 # Install GNU `sed`, overwriting the built-in `sed`.
 brew install gnu-sed
-
+# Install latest version of zsh
 brew install zsh
 
 # Switch to using brew-installed zsh as default shell
@@ -39,8 +39,8 @@ for file in ./.{aliases,curlrc,editorconfig,exports,functions,gitconfig,paths,sc
 done;
 unset file;
 
-# cp oh-my-zsh to home
-cp -R oh-my-zsh ~/.oh-my-zsh
+# Copy zsh directory to the home
+cp -R .zsh ~
 
 # Install various tools
 brew install ack
@@ -84,6 +84,7 @@ brew install zopfli
 
 brew cask install docker
 brew cask install google-chrome
+brew cask install iterm2
 
 brew cleanup
 
