@@ -68,16 +68,18 @@ brew install nano
 brew install node
 brew install openssh
 brew install p7zip
+brew install protobuf
 brew install python@2
 brew install python
 brew install redis
 brew install rename
 brew install screen
 brew install ssh-copy-id
-brew install starship
 brew install tcpdump
+brew install terraform
 brew install tig
 brew install tree
+brew install vegeta
 brew install wget
 brew install yarn
 brew install zopfli
@@ -85,6 +87,7 @@ brew install zopfli
 brew cask install docker
 brew cask install google-chrome
 brew cask install iterm2
+brew cask install visual-studio-code
 
 brew cleanup
 
