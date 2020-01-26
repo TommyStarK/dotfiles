@@ -107,9 +107,14 @@ function dockershow() {
 	docker network ls
 }
 
-# Docker full clean
 function dockerreset() {
     dockerstopall; dockerrmall ; docker rmi -f $(docker images -q); docker system prune --all --volumes --force
+}
+
+function dockerdisco() {
+    for endpoint in $(docker network inspect $1 | jq -r '.[0].Containers[].Name'); do
+        docker network disconnect -f $1 $endpoint
+    done
 }
 
 # enable NVM
