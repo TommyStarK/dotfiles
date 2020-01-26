@@ -3,7 +3,7 @@
 # Make nano the default editor.
 export EDITOR='nano';
 
-# Go mod
+# Go modules
 export GO111MODULE=on
 
 # Enable persistent REPL history for `node`.

@@ -28,7 +28,7 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 alias cleanup='find . -type f \( -iname "*~" -o -iname ".*~" -o -iname "#*#" -o -iname ".#*#" -o -iname "*.o" -o -iname "*(deleted*" -o -iname "*conflicted*" -o -iname "a.out" -o -iname ".out" -o -iname "*.DS_Store" \) -ls -delete'
 # Kill all the tabs in Chrome to free up memory
 # [C] explained: http://www.commandlinefu.com/commands/view/402/exclude-grep-from-your-grepped-output-of-ps-alias-included-in-description
-alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
+alias chromekill="ps ux | grep '[C]hrome Helper (Renderer) --type=renderer' | grep -v extension-process  | tr -s ' ' | cut -d ' ' -f 2 | xargs kill"
 # Empty the Trash on all mounted volumes and the main HDD.
 # Also, clear Apple’s System Logs to improve shell startup speed.
 # Finally, clear download history from quarantine. https://mths.be/bum
@@ -43,7 +43,7 @@ alias localip="ipconfig getifaddr en0"
 alias path='echo -e ${PATH//:/\\n}'
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec ${SHELL} -l"
-# `stree` is a `tree` with hidden files and color enabled, ignoring
+# `tree` is a `tree` with hidden files and color enabled, ignoring
 # the `.git` directory, listing directories first. The output gets piped into
 # `less` with options to preserve color and line numbers, unless the output is
 # small enough for one screen.
