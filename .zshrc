@@ -1,23 +1,18 @@
+# zmodload zsh/zprof
 export ZDOTDIR=$HOME/.zsh
+export ZSH=/usr/share/zsh/`zsh --version | grep -E "(\d\.){1,2}\d\s" |cut -d ' ' -f 2`
 
 ZSH_THEME="oxide/oxide"
 COMPLETION_WAITING_DOTS="true"
 plugins=(docker)
 
-#
-# Init
-#
+fpath=($ZSH/functions $ZSH/help $fpath)
 
-# add a function path
-fpath=($ZSH/functions $fpath)
-
-# Load the shell dotfiles
 for file in ~/.{aliases,exports,functions,paths}; do
     [ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file
 
-# Load all features files
 for config_file ($ZDOTDIR/features/*.zsh) source $config_file
 
 is_plugin() {
@@ -27,33 +22,33 @@ is_plugin() {
     || test -f $base_dir/plugins/$name/_$name
 }
 
-# Add all defined plugins to fpath. This must be done
-# before running compinit.
 for plugin ($plugins); do
   if is_plugin $ZDOTDIR $plugin; then
     fpath=($ZDOTDIR/plugins/$plugin $fpath)
   fi
 done
 
-# Load and run compinit
 autoload -Uz compinit
 
-# Load all of the plugins that were defined in the `plugins` variable in ~/.zshrc
 for plugin ($plugins); do
   if [ -f $ZDOTDIR/plugins/$plugin/$plugin.plugin.zsh ]; then
     source $ZDOTDIR/plugins/$plugin/$plugin.plugin.zsh
   fi
 done
 
-# Load theme if set
 if [ ! "$ZSH_THEME" = ""  ]; then
-	if [ -f "$ZDOTDIR/themes/$ZSH_THEME.zsh-theme" ]; then
-		source "$ZDOTDIR/themes/$ZSH_THEME.zsh-theme"
-	fi
+  if [ -f "$ZDOTDIR/themes/$ZSH_THEME.zsh-theme" ]; then
+    source "$ZDOTDIR/themes/$ZSH_THEME.zsh-theme"
+  fi
 fi
 
-if test "`find ~/.zcompdump -mtime +1`"; then
-	compinit -i -d ~/.zcompdump
+if [ ! -f ~/.zcompdump ]; then
+  zcompile ~/.zcompdump
+  compinit -i -d ~/.zcompdump
+elif test "`find ~/.zcompdump -mtime +1`"; then
+  compinit -i -d ~/.zcompdump
 else
-	compinit -C
+  compinit -C
 fi
+
+# zprof
