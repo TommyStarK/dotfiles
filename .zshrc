@@ -51,4 +51,6 @@ else
   compinit -C
 fi
 
+source <(kubectl completion zsh)
+
 # zprof
