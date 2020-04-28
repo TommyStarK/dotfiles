@@ -53,6 +53,7 @@ brew install gawk
 brew install gcc
 brew install gdb
 brew install git
+brew install git-delta
 brew install git-extras
 brew install git-lfs
 brew install go

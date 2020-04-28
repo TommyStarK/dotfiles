@@ -2,7 +2,7 @@
     # View abbreviated SHA, description, and history graph of the latest 20 commits
     slog = log --pretty=oneline -n 20 --graph --abbrev-commit
     # Show the diff between the latest commit and the current state
-    sdiff = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
+    sdiff = !"git diff-index --quiet HEAD -- || clear; git diff --patch-with-stat"
 	# Pull in remote changes for the current repository and all its submodules
     spull = !"git pull; git submodule foreach git pull origin master"
 	# Clone a repository including all submodules
@@ -63,3 +63,5 @@
 [core]
     edition = nano
     editor = nano
+    pager = delta --plus-color="#012800" --minus-color="#340001"
+
