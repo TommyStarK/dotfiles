@@ -63,5 +63,4 @@
 [core]
     edition = nano
     editor = nano
-    pager = delta --plus-color="#012800" --minus-color="#340001"
-
+    pager = delta --dark --theme='TwoDark' --hunk-style plain
