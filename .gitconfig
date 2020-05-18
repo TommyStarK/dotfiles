@@ -20,7 +20,7 @@
     go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
     # Show verbose output about tags, branches or remotes
     tags = tag -l
-    branches = branch -a
+    branches = branch -avv
     remotes = remote -v
     # List aliases
     aliases = config --get-regexp alias
