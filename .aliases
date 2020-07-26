@@ -21,6 +21,7 @@ alias desk="cd ~/Desktop"
 alias ll="ls -lF ${colorflag}"
 alias la="ls -lAhF ${colorflag}"
 alias grep='grep --color=auto --exclude-dir=.git'
+alias k='kubectl'
 
 # Lock the screen (when going AFK)
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
