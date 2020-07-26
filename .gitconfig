@@ -57,6 +57,9 @@
 
 [push]
 	default = simple
+	
+[pull]
+	rebase = false
 
 [remote]
     pushdefault = origin
