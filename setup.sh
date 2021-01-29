@@ -78,6 +78,7 @@ brew install terraform
 brew install tig
 brew install tree
 brew install vegeta
+brew install watch
 brew install wget
 brew install yarn
 brew install zopfli
