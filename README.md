@@ -1,8 +1,6 @@
 # dotfiles
 
-My .files inspired by the **awesome** dotfiles repository [mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles) combined with [zsh](https://www.zsh.org/).
-
-**WARNING** Use at your own risk :/
+:warning: Use at your own risk.
 
 ## Prerequisites
 
@@ -11,5 +9,5 @@ My .files inspired by the **awesome** dotfiles repository [mathiasbynens/dotfile
 ## Usage for macOS
 
 ```bash
-$ ./setup.sh
+❯ ./setup.sh
 ```
