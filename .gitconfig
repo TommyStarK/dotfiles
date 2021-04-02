@@ -8,7 +8,7 @@
 	# Clone a repository including all submodules
     sclone = clone --recursive
     # Commit all changes
-    scommit = !git add -A && git commit -av
+    scommit = !git add -A && git commit -av --signoff
     # Push stash with message
     pushstash = "!f() { git stash push -u --keep-index -m \"$1\"; }; f"
     # Pop specific stash
