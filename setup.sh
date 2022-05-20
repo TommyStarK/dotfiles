@@ -82,10 +82,10 @@ brew install wget
 brew install yarn
 brew install zopfli
 
-brew cask install docker
-brew cask install google-chrome
-brew cask install iterm2
-brew cask install visual-studio-code
+brew install docker --cask
+brew install google-chrome --cask
+brew install iterm2 --cask
+brew install visual-studio-code --cask
 
 brew cleanup
 
