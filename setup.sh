@@ -61,6 +61,7 @@ brew install graphviz
 brew install grep
 brew install htop
 brew install jq
+brew install kubectl
 brew install lazydocker
 brew install lua
 brew install mongodb
@@ -70,7 +71,6 @@ brew install node
 brew install openssh
 brew install p7zip
 brew install protobuf
-brew install python@2
 brew install python
 brew install redis
 brew install rename
@@ -82,14 +82,16 @@ brew install tig
 brew install tree
 brew install vegeta
 brew install watch
+brew install wireshark
 brew install wget
 brew install yarn
 brew install zopfli
 
-brew install docker --cask
-brew install google-chrome --cask
-brew install iterm2 --cask
-brew install visual-studio-code --cask
+brew install --cask docker
+brew install --cask fly
+brew install --cask google-chrome
+brew install --cask iterm2
+brew install --cask visual-studio-code
 
 brew cleanup
 
@@ -100,8 +102,8 @@ wget https://raw.githubusercontent.com/scopatz/nanorc/master/install.sh -O- | sh
 mkdir ~/.nvm && wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
 
 # Install Python deps
-pip install --upgrade pip
-pip install -r requirements.txt
+pip3 install --upgrade pip
+pip3 install -r requirements.txt
 
 # Install Node modules
 npm install -g cors

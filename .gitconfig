@@ -3,9 +3,9 @@
     slog = log --pretty=oneline -n 20 --graph --abbrev-commit
     # Show the diff between the latest commit and the current state
     sdiff = !"git diff-index --quiet HEAD -- || clear; git diff --patch-with-stat"
-	# Pull in remote changes for the current repository and all its submodules
+    # Pull in remote changes for the current repository and all its submodules
     spull = !"git pull; git submodule foreach git pull origin master"
-	# Clone a repository including all submodules
+    # Clone a repository including all submodules
     sclone = clone --recursive
     # Commit all changes
     scommit = !git add -A && git commit -av --signoff
@@ -30,40 +30,47 @@
     ui = auto
 
 [color "branch"]
-	current = yellow reverse
-	local = yellow
-	remote = green
+    current = yellow reverse
+    local = yellow
+    remote = green
 
 [color "diff"]
-	meta = yellow bold
-	frag = magenta bold # line info
-	old = red # deletions
-	new = green # additions
+    meta = yellow bold
+    frag = magenta bold # line info
+    old = red # deletions
+    new = green # additions
 
 [color "status"]
-	added = yellow
-	changed = green
-	untracked = cyan
+    added = yellow
+    changed = green
+    untracked = cyan
 
 [color "status"]
-	added = yellow
-	changed = green
-	untracked = cyan
-
-[merge]
-	# Include summaries of merged commits in newly created merge commit messages
-	log = true
-
-[push]
-	default = simple
-	
-[pull]
-	rebase = false
+    added = yellow
+    changed = green
+    untracked = cyan
 
 [remote]
     pushdefault = origin
 
+[http]
+	cookiefile = /Users/thomasmilox/.gitcookies
+
+[pull]
+    rebase = false
+
+[merge]
+    # Include summaries of merged commits in newly created merge commit messages
+    log = true
+
+[push]
+    default = simple
+
 [core]
     edition = nano
     editor = nano
-    pager = delta --dark --theme='TwoDark' --hunk-style plain
+    pager = delta --dark --syntax-theme TwoDark --hunk-header-style plain --line-numbers
+
+[user]
+	name = Thomas Milox
+	email = thomas.milox@ibm.com
