@@ -51,26 +51,26 @@
     changed = green
     untracked = cyan
 
-[remote]
-    pushdefault = origin
+[core]
+    edition = nano
+    editor = nano
+    pager = delta --dark --syntax-theme TwoDark --hunk-header-style plain --line-numbers
 
 [http]
 	cookiefile = /Users/thomasmilox/.gitcookies
-
-[pull]
-    rebase = false
 
 [merge]
     # Include summaries of merged commits in newly created merge commit messages
     log = true
 
+[pull]
+    rebase = false
+
 [push]
     default = simple
 
-[core]
-    edition = nano
-    editor = nano
-    pager = delta --dark --syntax-theme TwoDark --hunk-header-style plain --line-numbers
+[remote]
+    pushdefault = origin
 
 [user]
 	name = Thomas Milox
