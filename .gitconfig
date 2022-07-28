@@ -57,7 +57,7 @@
     pager = delta --dark --syntax-theme TwoDark --hunk-header-style plain --line-numbers
 
 [http]
-	cookiefile = /Users/thomasmilox/.gitcookies
+	cookiefile = ~/.gitcookies
 
 [merge]
     # Include summaries of merged commits in newly created merge commit messages
