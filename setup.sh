@@ -44,7 +44,7 @@ cp -R .zsh ~
 
 # Install various tools
 brew install ack
-brew install ansiblec
+brew install ansible
 brew install argocd
 brew install bash-completion
 brew install bat
