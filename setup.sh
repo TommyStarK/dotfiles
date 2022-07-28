@@ -44,11 +44,14 @@ cp -R .zsh ~
 
 # Install various tools
 brew install ack
-brew install ansible
+brew install ansiblec
+brew install argocd
 brew install bash-completion
 brew install bat
 brew install cmake
+brew install consul-template
 brew install curl
+brew install emacs
 brew install gawk
 brew install gcc
 brew install gdb
@@ -62,7 +65,7 @@ brew install grep
 brew install htop
 brew install jq
 brew install kubectl
-brew install lazydocker
+brew install libpq
 brew install lua
 brew install mongodb
 brew install mysql
@@ -71,6 +74,7 @@ brew install node
 brew install openssh
 brew install p7zip
 brew install protobuf
+brew install psql
 brew install python
 brew install redis
 brew install rename
@@ -106,12 +110,7 @@ pip3 install --upgrade pip
 pip3 install -r requirements.txt
 
 # Install Node modules
-npm install -g cors
-npm install -g body-parser
-npm install -g express
-npm install -g mongodb
-npm install -g react
-npm install -g create-react-app
+npm install -g ts-node
 
 # Setup MacOs defaults
 ./.macos
