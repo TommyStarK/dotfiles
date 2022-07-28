@@ -91,7 +91,7 @@ function dockerdangling() {
 }
 
 function dockerprune() {
-	dockerstopall; dockerrmall; dockerdangling; docker volume prune -f; docker network prune -f;
+	dockerstopall; dockerrmall; dockerdangling; docker volume prune -f; docker network prune -f; docker builder prune -f;
 }
 
 function dockershow() {
@@ -115,6 +115,30 @@ function dockerdisco() {
     done
 }
 
+function kubeadddockercred () {
+	kubectl create secret generic --namespace $1 dockercred --from-file=.dockerconfigjson=$HOME/.docker/config.json --type=kubernetes.io/dockerconfigjson
+}
+
+function kubeaddliteralsecret() {
+	kubectl create secret generic --namespace $1 $2 --type=$3 --from-literal=$4=$5 --from-literal=s$6=$7
+}
+
+function kubecleanns () {
+	kubectl delete statefulset,deployment,job,services,secrets,configmaps,ingress,pods,pvc,serviceaccount,role,rolebinding --all --namespace $1
+}
+
+function kubecleanpod () {
+	kubectl delete -n $1  pod $2 --grace-period 0 --force
+}
+
+function kubecleanpv() {
+	kubectl get pv | grep Released | awk '$1 {print$1}' | while read vol; do kubectl delete pv/${vol}; done
+}
+
+function kubedescribepv () {
+	kubectl describe -A pv | grep -E "^Name:.*$|^Namespace:.*$|^Released:.*$|^Claim:.*$|^Status:.*$"
+}
+
 nvm() {
     if [ -z $NVM_DIR]; then
         export NVM_DIR="$HOME/.nvm"
@@ -122,4 +146,3 @@ nvm() {
     fi
     nvm $@
 }
-
