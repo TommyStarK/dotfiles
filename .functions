@@ -115,14 +115,6 @@ function dockerdisco() {
     done
 }
 
-function kubeadddockercred () {
-	kubectl create secret generic --namespace $1 dockercred --from-file=.dockerconfigjson=$HOME/.docker/config.json --type=kubernetes.io/dockerconfigjson
-}
-
-function kubeaddliteralsecret() {
-	kubectl create secret generic --namespace $1 $2 --type=$3 --from-literal=$4=$5 --from-literal=s$6=$7
-}
-
 function kubecleanns () {
 	kubectl delete statefulset,deployment,job,services,secrets,configmaps,ingress,pods,pvc,serviceaccount,role,rolebinding --all --namespace $1
 }
