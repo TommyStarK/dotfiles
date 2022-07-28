@@ -79,11 +79,11 @@ function digga() {
 }
 
 function dockerstopall() {
-    docker ps -a | awk '{print $1}' | xargs docker stop
+	docker ps -a | awk '{print $1}' | xargs docker stop
 }
 
-function  dockerrmall() {
-    docker ps -a | awk '{print $1}' | xargs docker rm
+function dockerrmall() {
+	docker ps -a | awk '{print $1}' | xargs docker rm
 }
 
 function dockerdangling() {
@@ -106,13 +106,13 @@ function dockershow() {
 }
 
 function dockerreset() {
-    dockerstopall; dockerrmall ; docker rmi -f $(docker images -q); docker system prune --all --volumes --force
+	dockerstopall; dockerrmall ; docker rmi -f $(docker images -q); docker system prune --all --volumes --force
 }
 
 function dockerdisco() {
-    for endpoint in $(docker network inspect $1 | jq -r '.[0].Containers[].Name'); do
-        docker network disconnect -f $1 $endpoint
-    done
+	for endpoint in $(docker network inspect $1 | jq -r '.[0].Containers[].Name'); do
+		docker network disconnect -f $1 $endpoint
+	done
 }
 
 function kubecleanns () {
@@ -120,7 +120,7 @@ function kubecleanns () {
 }
 
 function kubecleanpod () {
-	kubectl delete -n $1  pod $2 --grace-period 0 --force
+	kubectl delete --namespace $1 pod $2 --grace-period 0 --force
 }
 
 function kubecleanpv() {
@@ -132,9 +132,9 @@ function kubedescribepv () {
 }
 
 nvm() {
-    if [ -z $NVM_DIR]; then
-        export NVM_DIR="$HOME/.nvm"
-        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-    fi
-    nvm $@
+	if [ -z $NVM_DIR]; then
+		export NVM_DIR="$HOME/.nvm"
+		[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+	fi
+	nvm $@
 }
