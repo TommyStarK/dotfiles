@@ -116,7 +116,7 @@ function dockerdisco() {
 }
 
 function kubecleanns () {
-	kubectl delete statefulset,deployment,job,services,secrets,configmaps,ingress,pods,pvc,serviceaccount,role,rolebinding --all --namespace $1
+	kubectl delete daemonset,statefulset,deployment,job,services,secrets,configmaps,ingress,pods,pvc,serviceaccount,role,rolebinding --all --namespace $1
 }
 
 function kubecleanpod () {
