@@ -104,6 +104,7 @@ brew cleanup
 wget https://raw.githubusercontent.com/scopatz/nanorc/master/install.sh -O- | sh
 
 cat << EOF >> ~/.nanorc
+
 set tabsize 4
 set tabstospaces
 #set linenumbers
