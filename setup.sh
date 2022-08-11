@@ -105,26 +105,34 @@ wget https://raw.githubusercontent.com/scopatz/nanorc/master/install.sh -O- | sh
 
 cat << EOF >> ~/.nanorc
 
-set tabsize 4
+set tabsize 2
 set tabstospaces
-#set linenumbers
-#set numbercolor yellow,normal
-set indicator   # side-bar for indicating cur position
-#set mouse       # enable mouse support
-#set smarthome   # `Home` jumps to line start first
-set zap         # delete selected text as a whole
-set afterends   # `Ctrl+Right` move to word ends instead of word starts
-set wordchars "_"   # recognize '_' as part of a word
-set historylog      # remember search history
-set multibuffer     # read files into multibuffer instead of insert
+set indicator
+set mouse
+set zap
+set afterends
+set wordchars "_"
+set historylog
+set multibuffer
+
+unbind ^K main
+unbind ^U main
+unbind ^W main
+unbind ^G main
 
 bind ^q exit all
+bind ^h help main
 bind ^x cut main
 bind ^v paste main
 bind ^z undo main
+bind ^u redo main
 bind ^f whereis main
 bind ^r replace main
 bind ^/ comment main
+bind ^d gotoline main
+bind ^G findnext main
+bind ^b findbracket main
+bind ^k cutfromcursor main
 EOF
 
 # Install nvm
