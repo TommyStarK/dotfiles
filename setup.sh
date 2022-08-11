@@ -103,6 +103,29 @@ brew cleanup
 # Install nano with syntax highlighting
 wget https://raw.githubusercontent.com/scopatz/nanorc/master/install.sh -O- | sh
 
+cat << EOF >> ~/.nanorc
+set tabsize 4
+set tabstospaces
+#set linenumbers
+#set numbercolor yellow,normal
+set indicator   # side-bar for indicating cur position
+#set mouse       # enable mouse support
+#set smarthome   # `Home` jumps to line start first
+set zap         # delete selected text as a whole
+set afterends   # `Ctrl+Right` move to word ends instead of word starts
+set wordchars "_"   # recognize '_' as part of a word
+set historylog      # remember search history
+set multibuffer     # read files into multibuffer instead of insert
+
+bind ^q exit all
+bind ^x cut main
+bind ^v paste main
+bind ^z undo main
+bind ^f whereis main
+bind ^r replace main
+bind ^/ comment main
+EOF
+
 # Install nvm
 mkdir ~/.nvm && wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
 
