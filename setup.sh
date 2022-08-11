@@ -100,6 +100,38 @@ brew cleanup
 # Install nano with syntax highlighting
 wget https://raw.githubusercontent.com/scopatz/nanorc/master/install.sh -O- | sh
 
+cat << EOF >> ~/.nanorc
+
+set tabsize 2
+set tabstospaces
+set indicator
+set mouse
+set zap
+set afterends
+set wordchars "_"
+set historylog
+set multibuffer
+
+unbind ^K main
+unbind ^U main
+unbind ^W main
+unbind ^G main
+
+bind ^q exit all
+bind ^h help main
+bind ^x cut main
+bind ^v paste main
+bind ^z undo main
+bind ^u redo main
+bind ^f whereis main
+bind ^r replace main
+bind ^/ comment main
+bind ^d gotoline main
+bind ^G findnext main
+bind ^b findbracket main
+bind ^k cutfromcursor main
+EOF
+
 # Install nvm
 mkdir ~/.nvm && wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
 
