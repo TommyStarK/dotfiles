@@ -60,6 +60,7 @@ brew install go
 brew install graphviz
 brew install grep
 brew install grpcurl
+brew install helm
 brew install htop
 brew install jq
 brew install kubectl
