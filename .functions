@@ -116,11 +116,20 @@ function dockerdisco() {
 }
 
 function kubecleanns () {
-	kubectl delete statefulset,deployment,job,services,secrets,configmaps,ingress,pods,pvc,serviceaccount,role,rolebinding --all --namespace $1
+	kubectl delete daemonset,statefulset,deployment,job,services,secrets,configmaps,ingress,pods,pvc,serviceaccount,role,rolebinding --all --namespace $1
 }
 
 function kubecleanpod () {
 	kubectl delete --namespace $1 pod $2 --grace-period 0 --force
+}
+
+function kubecleanpodbystatus() {
+	for ns in $(kubectl get namespaces --no-headers | cut -d " " -f1); do
+		for pod in $(kubectl get pods -n ${ns} --no-headers | grep $1 | cut -d " " -f1); do
+			kubectl patch -n ${ns} pod/${pod} -p '{"metadata":{"finalizers":null}}'
+			kubecleanpod ${ns} ${pod}
+		done
+	done
 }
 
 function kubecleanpv() {
