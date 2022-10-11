@@ -42,7 +42,7 @@ alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en0"
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
-# `stree` is a `tree` with hidden files and color enabled, ignoring
+# `tree` is a `tree` with hidden files and color enabled, ignoring
 # the `.git` directory, listing directories first. The output gets piped into
 # `less` with options to preserve color and line numbers, unless the output is
 # small enough for one screen.
