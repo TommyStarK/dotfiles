@@ -4,3 +4,14 @@ export GOPATH="$HOME/go"
 export PATH="$(brew --prefix coreutils)/libexec/gnubi":$PATH
 export PATH="$GOPATH/bin":$PATH
 export PATH="/usr/local/sbin":$PATH
+export PATH="/usr/local/opt/libpq/bin:$PATH"
+
+GNUBINS="$(find `brew --prefix`/opt -type d -follow -name gnubin -print)"
+
+for bindir in ${GNUBINS[@]}
+do
+	export PATH=$bindir:$PATH
+done
+
+export PATH
+Footer
