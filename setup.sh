@@ -14,6 +14,7 @@ brew upgrade
 brew install  ack \
 	ansible \
 	argocd \
+	bash \
 	bash-completion \
 	bat \
 	consul-template \
