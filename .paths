@@ -1,16 +1,12 @@
 #!/usr/bin/env bash
 
 export GOPATH="$HOME/go"
-export PATH="$(brew --prefix coreutils)/libexec/gnubi":$PATH
 export PATH="$GOPATH/bin":$PATH
 export PATH="/usr/local/sbin":$PATH
-export PATH="/usr/local/opt/libpq/bin:$PATH"
 
-GNUBINS="$(find `brew --prefix`/opt -type d -follow -name gnubin -print)"
-
-for bindir in ${GNUBINS[@]}
-do
-	export PATH=$bindir:$PATH
-done
-
-export PATH
+if type brew &>/dev/null; then
+	HOMEBREW_PREFIX=$(brew --prefix)
+	for d in ${HOMEBREW_PREFIX}/opt/*/libexec/gnubin; do
+		export PATH=$d:$PATH;
+	done
+fi
