@@ -41,6 +41,7 @@ brew install  ack \
 	libpq \
 	lua \
 	make \
+	minikube \
 	moreutils \
 	mysql \
 	node \
@@ -72,6 +73,8 @@ brew install --cask cmake \
 	iterm2 \
 	nano \
 	visual-studio-code
+
+brew install chipmk/tap/docker-mac-net-connect
 
 brew cleanup
 
