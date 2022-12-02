@@ -38,6 +38,7 @@ brew install  ack \
 	htop \
 	jq \
 	kubectl \
+	k6 \
 	libpq \
 	lua \
 	make \
