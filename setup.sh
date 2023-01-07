@@ -37,6 +37,7 @@ brew install  ack \
 	grpcurl \
 	htop \
 	jq \
+	kind \
 	kubectl \
 	k6 \
 	libpq \
@@ -136,6 +137,10 @@ pip3 install --upgrade pip
 pip3 install -r requirements.txt
 
 npm install -g ts-node
+
+go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
+go install golang.org/x/perf/cmd/benchstat@latest
+go install golang.org/x/tools/cmd/stress@latest
 
 ./.macos
 
