@@ -140,10 +140,14 @@ function kubedescribepv () {
 	kubectl describe -A pv | grep -E "^Name:.*$|^Namespace:.*$|^Released:.*$|^Claim:.*$|^Status:.*$"
 }
 
-nvm() {
+function nvm() {
 	if [ -z $NVM_DIR]; then
 		export NVM_DIR="$HOME/.nvm"
 		[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 	fi
 	nvm $@
+}
+
+function pprofmem() {
+	go tool pprof --alloc_space $@
 }
