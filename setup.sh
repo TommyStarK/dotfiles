@@ -17,6 +17,7 @@ brew install  ack \
 	bash \
 	bash-completion \
 	bat \
+	ca-certificates \
 	consul-template \
 	coreutils \
 	curl \
@@ -25,6 +26,7 @@ brew install  ack \
 	gawk \
 	gcc \
 	gdb \
+	gh \
 	git \
 	git-delta \
 	git-extras \
@@ -35,10 +37,11 @@ brew install  ack \
 	graphviz \
 	grep \
 	grpcurl \
+	helm \
 	htop \
 	jq \
 	kind \
-	kubectl \
+	kubernetes-cli \
 	k6 \
 	libpq \
 	lua \
@@ -54,16 +57,20 @@ brew install  ack \
 	redis \
 	rename \
 	screen \
+	sonar-scanner \
+	sqlite \
 	ssh-copy-id \
 	tcpdump \
 	terraform \
 	tig \
 	tree \
+	vault \
 	vegeta \
 	watch \
 	wireshark \
 	wget \
 	yarn \
+	yq \
 	zopfli \
 	zsh
 
