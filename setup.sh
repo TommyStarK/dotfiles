@@ -3,7 +3,7 @@
 xcode-select --install
 sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
 
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 sudo -v
 
