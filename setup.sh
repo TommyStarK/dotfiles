@@ -1,4 +1,4 @@
-# #!/usr/bin/env bash
+#!/usr/bin/env bash
 
 xcode-select --install
 sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
@@ -145,6 +145,7 @@ npm install -g ts-node
 go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
 go install golang.org/x/perf/cmd/benchstat@latest
 go install golang.org/x/tools/cmd/stress@latest
+go install sigs.k8s.io/kubetest2/...@latest
 
 ./.macos
 
