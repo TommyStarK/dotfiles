@@ -49,6 +49,7 @@ brew install  ack \
 	minikube \
 	moreutils \
 	mysql \
+	nano \
 	node \
 	openssh \
 	p7zip \
@@ -80,12 +81,14 @@ brew install --cask cmake \
 	fly \
 	google-chrome \
 	iterm2 \
-	nano \
 	visual-studio-code
 
 brew install chipmk/tap/docker-mac-net-connect
 
 brew cleanup
+
+# https://stackoverflow.com/a/73373788
+sudo ln -s /opt/homebrew/bin/nano /usr/local/bin/nano
 
 # Switch to using brew-installed zsh as default shell
 if ! fgrep -q '/usr/local/bin/zsh' /etc/shells; then
