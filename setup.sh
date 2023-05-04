@@ -146,6 +146,8 @@ go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
 go install golang.org/x/perf/cmd/benchstat@latest
 go install golang.org/x/tools/cmd/stress@latest
 go install sigs.k8s.io/kubetest2/...@latest
+go install golang.org/x/vuln/cmd/govulncheck@latest
+go install github.com/praetorian-inc/gokart@latest
 
 ./.macos
 
