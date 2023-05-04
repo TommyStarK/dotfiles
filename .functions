@@ -148,6 +148,10 @@ function nvm() {
 	nvm $@
 }
 
+function pprofcpu() {
+	go tool pprof $@
+}
+
 function pprofmem() {
 	go tool pprof --alloc_space $@
 }
