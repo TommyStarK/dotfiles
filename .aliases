@@ -59,3 +59,5 @@ alias valeak="valgrind --leak-check=full --show-reachable=yes"
 alias docker-mac-net-start="sudo brew services start chipmk/tap/docker-mac-net-connect"
 # stop docker-mac-net-connect
 alias docker-mac-net-stop="sudo brew services stop chipmk/tap/docker-mac-net-connect"
+# bypass brew issue when installing nano
+alias nano="/usr/local/bin/nano"

@@ -49,6 +49,7 @@ brew install  ack \
 	minikube \
 	moreutils \
 	mysql \
+	nano \
 	node \
 	openssh \
 	p7zip \
@@ -80,7 +81,6 @@ brew install --cask cmake \
 	fly \
 	google-chrome \
 	iterm2 \
-	nano \
 	visual-studio-code
 
 brew install chipmk/tap/docker-mac-net-connect
@@ -92,6 +92,9 @@ if ! fgrep -q '/usr/local/bin/bash' /etc/shells; then
 	echo '/usr/local/bin/bash' | sudo tee -a /etc/shells;
 	chsh -s /usr/local/bin/bash;
 fi;
+
+# https://stackoverflow.com/a/73373788
+sudo ln -s /opt/homebrew/bin/nano /usr/local/bin/nano
 
 # Copy .files to HOME
 for file in ./.{aliases,bash_profile,bash_prompt,bashrc,curlrc,editorconfig,exports,functions,gitconfig,inputrc,paths,screenrc,wgetrc}; do
