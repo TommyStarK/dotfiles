@@ -43,6 +43,7 @@ brew install  ack \
 	kind \
 	kubernetes-cli \
 	k6 \
+	k9s \
 	libpq \
 	lua \
 	make \
