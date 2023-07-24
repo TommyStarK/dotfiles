@@ -19,9 +19,11 @@ brew install  ack \
 	bat \
 	ca-certificates \
 	consul-template \
+ 	coredns \
 	coreutils \
 	curl \
 	ed \
+ 	etcd \
 	findutils \
 	gawk \
 	gcc \
@@ -48,6 +50,7 @@ brew install  ack \
 	lua \
 	make \
 	minikube \
+ 	mkcert \
 	moreutils \
 	mysql \
 	nano \
@@ -56,6 +59,7 @@ brew install  ack \
 	p7zip \
 	protobuf \
 	python \
+ 	qemu \
 	redis \
 	rename \
 	screen \
