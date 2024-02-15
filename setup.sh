@@ -89,6 +89,7 @@ brew install --cask cmake \
 	visual-studio-code
 
 brew install chipmk/tap/docker-mac-net-connect
+brew install danielfoehrkn/switch/switch
 
 brew cleanup
 
