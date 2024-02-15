@@ -54,3 +54,7 @@ fi
 source <(kubectl completion zsh)
 
 # zprof
+
+# kubeswitch
+source <(switcher init zsh)
+source <(compdef _switcher switch)
