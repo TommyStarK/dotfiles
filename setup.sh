@@ -160,6 +160,8 @@ go install golang.org/x/tools/cmd/stress@latest
 go install sigs.k8s.io/kubetest2/...@latest
 go install golang.org/x/vuln/cmd/govulncheck@latest
 go install github.com/praetorian-inc/gokart@latest
+go install github.com/securego/gosec/v2/cmd/gosec@latest
+go install github.com/google/osv-scanner/cmd/osv-scanner@v1
 
 ./.macos
 
