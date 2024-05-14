@@ -1,0 +1,16 @@
+{
+    "[python]": {
+        "editor.formatOnType": true
+	},
+	"go.goroot": "/opt/homebrew/Cellar/go/1.22.2/libexec",
+	"go.coverOnSingleTest": true,
+	"go.coverOnSingleTestFile": true,
+	"go.coverMode": "atomic",
+	"terminal.integrated.defaultProfile.osx": "zsh",
+	"application.shellEnvironmentResolutionTimeout": 60,
+	"redhat.telemetry.enabled": false,
+	"go.toolsManagement.autoUpdate": true,
+	"go.alternateTools": {},
+	"diffEditor.ignoreTrimWhitespace": false,
+	"workbench.colorTheme": "Atom One Dark"
+}
