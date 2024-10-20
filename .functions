@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-# Create a .tar.gz archive, using `zopfli`, `pigz` or `gzip` for compression
 function targz() {
 	local tmpFile="${@%/}.tar";
 	tar -cvf "${tmpFile}" --exclude=".DS_Store" "${@}" || return 1;
@@ -34,7 +33,6 @@ function targz() {
 	echo "${tmpFile}.gz ($((zippedSize / 1000)) kB) created successfully.";
 }
 
-# Determine size of a file or total size of a directory
 function filesize() {
 	if du -b /dev/null > /dev/null 2>&1; then
 		local arg=-sbh;
@@ -48,7 +46,6 @@ function filesize() {
 	fi;
 }
 
-# Use Git’s colored diff when available
 hash git &>/dev/null;
 if [ $? -eq 0 ]; then
 	function diff() {
@@ -56,7 +53,6 @@ if [ $? -eq 0 ]; then
 	}
 fi;
 
-# Normalize `open` across Linux, macOS, and Windows.
 if [ ! $(uname -s) = 'Darwin' ]; then
 	if grep -q Microsoft /proc/version; then
 		# Ubuntu on Windows using the Linux subsystem
@@ -66,78 +62,10 @@ if [ ! $(uname -s) = 'Darwin' ]; then
 	fi
 fi
 
-# Start an HTTP server from a directory, optionally specifying the port
 function server() {
 	local port="${1:-8000}";
 	sleep 1 && open "http://localhost:${port}/" &
 	python3 -m http.server $port --directory .
-}
-
-# Run `dig` and display the most useful info
-function digga() {
-	dig +nocmd "$1" any +multiline +noall +answer;
-}
-
-function dockerstopall() {
-	docker ps -a | awk '{print $1}' | xargs docker stop
-}
-
-function dockerrmall() {
-	docker ps -a | awk '{print $1}' | xargs docker rm
-}
-
-function dockerdangling() {
-	docker images -qf dangling=true | xargs docker rmi -f
-}
-
-function dockerprune() {
-	dockerstopall; dockerrmall; dockerdangling; docker volume prune -f; docker network prune -f; docker builder prune -f;
-}
-
-function dockershow() {
-	echo ">>> Containers";
-	docker ps -a;
-	echo; echo ">>> Images";
-	docker images;
-	echo; echo ">>> Volumes";
-	docker volume ls;
-	echo; echo ">>> Networks";
-	docker network ls
-}
-
-function dockerreset() {
-	dockerstopall; dockerrmall ; docker rmi -f $(docker images -q); docker system prune --all --volumes --force
-}
-
-function dockerdisco() {
-	for endpoint in $(docker network inspect $1 | jq -r '.[0].Containers[].Name'); do
-		docker network disconnect -f $1 $endpoint
-	done
-}
-
-function kubecleanns () {
-	kubectl delete daemonset,statefulset,deployment,job,services,secrets,configmaps,ingress,pods,pvc,serviceaccount,role,rolebinding --all --namespace $1
-}
-
-function kubecleanpod () {
-	kubectl delete --namespace $1 pod $2 --grace-period 0 --force
-}
-
-function kubecleanpodbystatus() {
-	for ns in $(kubectl get namespaces --no-headers | cut -d " " -f1); do
-		for pod in $(kubectl get pods -n ${ns} --no-headers | grep $1 | cut -d " " -f1); do
-			kubectl patch -n ${ns} pod/${pod} -p '{"metadata":{"finalizers":null}}'
-			kubecleanpod ${ns} ${pod}
-		done
-	done
-}
-
-function kubecleanpv() {
-	kubectl get pv | grep Released | awk '$1 {print$1}' | while read vol; do kubectl delete pv/${vol}; done
-}
-
-function kubedescribepv () {
-	kubectl describe -A pv | grep -E "^Name:.*$|^Namespace:.*$|^Released:.*$|^Claim:.*$|^Status:.*$"
 }
 
 function nvm() {

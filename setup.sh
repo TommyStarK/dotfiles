@@ -16,14 +16,13 @@ brew install  ack \
 	argocd \
 	bash \
 	bash-completion \
-	bat \
 	ca-certificates \
 	consul-template \
 	coreutils \
- 	coredns \
+	coredns \
 	curl \
 	ed \
- 	etcd \
+	etcd \
 	findutils \
 	gawk \
 	gcc \
@@ -50,7 +49,7 @@ brew install  ack \
 	lua \
 	make \
 	minikube \
- 	mkcert \
+	mkcert \
 	moreutils \
 	mysql \
 	nano \
@@ -59,7 +58,7 @@ brew install  ack \
 	p7zip \
 	protobuf \
 	python \
- 	qemu \
+	qemu \
 	redis \
 	rename \
 	screen \
@@ -108,6 +107,15 @@ for file in ./.{aliases,bash_profile,bash_prompt,bashrc,curlrc,editorconfig,expo
 done;
 unset file;
 
+mkdir -pv ~/.config/k9s
+for file in ./.k9s/{aliases.yaml,config.yaml,plugins.yaml}; do
+	cp -v "$file" ~/.config/k9s;
+done;
+unset file;
+
+export VERSION=$(curl https://storage.googleapis.com/kubevirt-prow/release/kubevirt/kubevirt/stable.txt)
+wget https://github.com/kubevirt/kubevirt/releases/download/${VERSION}/virtctl-${VERSION}-darwin-arm64
+
 # Install nano with syntax highlighting
 wget https://raw.githubusercontent.com/scopatz/nanorc/master/install.sh -O- | sh
 
@@ -148,9 +156,6 @@ mkdir ~/.nvm && wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.34
 ln -s /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion /usr/local/etc/bash_completion.d/docker
 ln -s /Applications/Docker.app/Contents/Resources/etc/docker-machine.bash-completion /usr/local/etc/bash_completion.d/docker-machine
 ln -s /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion /usr/local/etc/bash_completion.d/docker-compose
-
-pip3 install --upgrade pip
-pip3 install -r requirements.txt
 
 npm install -g ts-node
 
