@@ -1,8 +1,5 @@
 {
-    "[python]": {
-        "editor.formatOnType": true
-	},
-	"go.goroot": "/opt/homebrew/Cellar/go/1.22.2/libexec",
+	"go.goroot": "/opt/homebrew/Cellar/go/1.23.1/libexec",
 	"go.coverOnSingleTest": true,
 	"go.coverOnSingleTestFile": true,
 	"go.coverMode": "atomic",

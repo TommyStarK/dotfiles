@@ -16,14 +16,13 @@ brew install  ack \
 	argocd \
 	bash \
 	bash-completion \
-	bat \
 	ca-certificates \
 	consul-template \
- 	coredns \
+	coredns \
 	coreutils \
 	curl \
 	ed \
- 	etcd \
+	etcd \
 	findutils \
 	gawk \
 	gcc \
@@ -50,7 +49,7 @@ brew install  ack \
 	lua \
 	make \
 	minikube \
- 	mkcert \
+	mkcert \
 	moreutils \
 	mysql \
 	nano \
@@ -59,7 +58,7 @@ brew install  ack \
 	p7zip \
 	protobuf \
 	python \
- 	qemu \
+	qemu \
 	redis \
 	rename \
 	screen \
@@ -96,7 +95,6 @@ brew cleanup
 # https://stackoverflow.com/a/73373788
 sudo ln -s /opt/homebrew/bin/nano /usr/local/bin/nano
 
-# Switch to using brew-installed zsh as default shell
 if ! fgrep -q '/usr/local/bin/zsh' /etc/shells; then
 	echo '/usr/local/bin/zsh' | sudo tee -a /etc/shells;
 	chsh -s /usr/local/bin/zsh;
@@ -108,6 +106,15 @@ done;
 unset file;
 
 cp -R .zsh ~
+
+mkdir -pv ~/.config/k9s
+for file in ./.k9s/{aliases.yaml,config.yaml,plugins.yaml}; do
+	cp -v "$file" ~/.config/k9s;
+done;
+unset file;
+
+export VERSION=$(curl https://storage.googleapis.com/kubevirt-prow/release/kubevirt/kubevirt/stable.txt)
+wget https://github.com/kubevirt/kubevirt/releases/download/${VERSION}/virtctl-${VERSION}-darwin-arm64
 
 # Install nano with syntax highlighting
 wget https://raw.githubusercontent.com/scopatz/nanorc/master/install.sh -O- | sh
@@ -145,10 +152,6 @@ bind ^k cutfromcursor main
 EOF
 
 mkdir ~/.nvm && wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
-
-pip3 install --upgrade pip
-pip3 install -r requirements.txt
-
 npm install -g ts-node
 
 go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest

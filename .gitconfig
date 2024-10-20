@@ -1,31 +1,18 @@
 [alias]
-    # View abbreviated SHA, description, and history graph of the latest 20 commits
     slog = log --pretty=oneline -n 20 --graph --abbrev-commit
-    # Show the diff between the latest commit and the current state
     sdiff = !"git diff-index --quiet HEAD -- || clear; git diff --patch-with-stat"
-    # Pull in remote changes for the current repository and all its submodules
     spull = !"git pull; git submodule foreach git pull origin master"
-    # Clone a repository including all submodules
     sclone = clone --recursive
-    # Commit all changes
     scommit = !git add -A && git commit -av --signoff
-    # Push stash with message
     pushstash = "!f() { git stash push -u --keep-index -m \"$1\"; }; f"
-    # Pop specific stash
     popstash = "!f() { git stash apply stash@{\"$1\"}; }; f"
-    # Drop specific stash
     dropstash="!f() { git stash drop stash@{\"$1\"}; }; f"
-    # Switch to a branch, creating it if necessary
     go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
-    # github pr
     ghpr = "!f() { git fetch upstream pull/\"$1\"/head; git checkout -b gh_\"$1\" FETCH_HEAD; }; f"
-    # Show verbose output about tags, branches or remotes
     tags = tag -l
     branches = branch -avv
     remotes = remote -v
-    # List aliases
     aliases = config --get-regexp alias
-    # List contributors with number of commits
     contributors = shortlog --summary --numbered
 
 [color]
@@ -61,7 +48,6 @@
     cookiefile = ~/.gitcookies
 
 [merge]
-    # Include summaries of merged commits in newly created merge commit messages
     log = true
 
 [pull]
@@ -76,11 +62,11 @@
 [credential]
     helper = osxkeychain
 
-# [filter "lfs"]
-    # clean = git-lfs clean -- %f
-    # smudge = git-lfs smudge --skip -- %f
-    # process = git-lfs filter-process --skip
-    # required = true
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge --skip -- %f
+    process = git-lfs filter-process --skip
+    required = true
 
 [user]
     name = Thomas Milox

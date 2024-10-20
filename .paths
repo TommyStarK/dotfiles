@@ -5,7 +5,6 @@ export PATH="$GOPATH/bin":$PATH
 export PATH="/usr/local/sbin":$PATH
 export PATH="/usr/local/bin":$PATH
 
-
 if type brew &>/dev/null; then
 	HOMEBREW_PREFIX=$(brew --prefix)
 	for d in ${HOMEBREW_PREFIX}/opt/*/libexec/gnubin; do

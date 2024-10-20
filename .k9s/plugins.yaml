@@ -1,0 +1,35 @@
+plugins:
+  vmconsole:
+    shortCut: Shift-C
+    confirm: false
+    description: "Console to the VM"
+    scopes:
+      - virtualmachines
+    command: bash
+    background: false
+    args:
+      - -c
+      - "virtctl console $COL-NAME -n $NAMESPACE"
+  dive:
+    shortCut: d
+    confirm: false
+    description: "Dive image"
+    scopes:
+      - containers
+    command: bash
+    background: false
+    args:
+      - -c
+      - "docker pull $COL-IMAGE && dive --source=podman $COL-IMAGE"
+  debug:
+    shortCut: Shift-D
+    description: Add debug container
+    dangerous: true
+    scopes:
+      - containers
+    command: bash
+    background: false
+    confirm: true
+    args:
+      - -c
+      - "kubectl debug -it --context $CONTEXT -n=$NAMESPACE $POD --target=$NAME --image=nicolaka/netshoot --profile=sysadmin --share-processes -- sh"
